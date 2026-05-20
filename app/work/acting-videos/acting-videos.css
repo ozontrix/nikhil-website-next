@@ -1,0 +1,334 @@
+/* app/acting-videos/acting-videos.css */
+
+.acting-page {
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(216,179,106,0.08),
+      transparent 32%
+    ),
+    #050505;
+
+  color: white;
+
+  padding:
+    130px 7vw
+    100px;
+
+  overflow-x: hidden;
+}
+
+/* HERO */
+
+.acting-hero {
+  max-width: 920px;
+
+  margin-bottom: 90px;
+}
+
+.acting-subtitle {
+  color: #8f8f8f;
+
+  font-size: 12px;
+
+  letter-spacing: 0.28em;
+
+  margin-bottom: 22px;
+}
+
+.acting-hero h1 {
+  font-size: clamp(
+    3rem,
+    7vw,
+    6rem
+  );
+
+  line-height: 0.95;
+
+  font-weight: 600;
+
+  letter-spacing: -0.05em;
+
+  margin-bottom: 28px;
+}
+
+.acting-hero h1 span {
+  color: #d8b36a;
+}
+
+.acting-description {
+  max-width: 650px;
+
+  color: #9f9f9f;
+
+  line-height: 1.8;
+
+  font-size: 1rem;
+}
+
+/* GRID */
+
+.acting-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(340px, 1fr)
+    );
+
+  gap: 38px;
+}
+
+/* CARD */
+
+.acting-card {
+  cursor: pointer;
+
+  transition:
+    transform 0.45s ease,
+    opacity 0.45s ease;
+}
+
+.acting-card:hover {
+  transform: translateY(-8px);
+}
+
+/* IMAGE */
+
+.acting-image-wrapper {
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 28px;
+
+  aspect-ratio: 16 / 9;
+
+  background: #111;
+
+  box-shadow:
+    0 20px 60px
+    rgba(0,0,0,0.45);
+}
+
+.acting-image-wrapper img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+
+  transition:
+    transform 0.8s ease,
+    filter 0.8s ease;
+}
+
+.acting-card:hover img {
+  transform: scale(1.06);
+
+  filter: brightness(0.72);
+}
+
+/* OVERLAY */
+
+.acting-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(0,0,0,0.72),
+      rgba(0,0,0,0.08)
+    );
+}
+
+/* PLAY */
+
+.acting-play {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  transform:
+    translate(-50%, -50%);
+
+  width: 82px;
+  height: 82px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    rgba(255,255,255,0.12);
+
+  backdrop-filter: blur(12px);
+
+  font-size: 28px;
+
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease;
+}
+
+.acting-card:hover .acting-play {
+  transform:
+    translate(-50%, -50%)
+    scale(1.08);
+
+  background:
+    rgba(255,255,255,0.2);
+}
+
+/* INFO */
+
+.acting-info {
+  padding-top: 22px;
+}
+
+.acting-meta {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 10px;
+
+  color: #9a9a9a;
+
+  font-size: 0.8rem;
+
+  letter-spacing: 0.14em;
+
+  text-transform: uppercase;
+}
+
+.acting-info h3 {
+  font-size: 1.55rem;
+
+  font-weight: 500;
+
+  letter-spacing: -0.03em;
+}
+
+/* MODAL */
+
+.acting-modal {
+  position: fixed;
+
+  inset: 0;
+
+  background:
+    rgba(0,0,0,0.82);
+
+  backdrop-filter: blur(12px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 9999;
+
+  padding: 30px;
+}
+
+.acting-modal-content {
+  position: relative;
+
+  width: 100%;
+  max-width: 1200px;
+
+  aspect-ratio: 16 / 9;
+
+  border-radius: 26px;
+
+  overflow: hidden;
+
+  background: black;
+
+  box-shadow:
+    0 20px 100px
+    rgba(0,0,0,0.7);
+}
+
+.acting-modal-content iframe {
+  width: 100%;
+  height: 100%;
+
+  border: none;
+}
+
+/* CLOSE */
+
+.acting-close {
+  position: absolute;
+
+  top: 18px;
+  right: 18px;
+
+  width: 46px;
+  height: 46px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255,255,255,0.12);
+
+  color: white;
+
+  font-size: 18px;
+
+  cursor: pointer;
+
+  z-index: 10;
+
+  backdrop-filter: blur(12px);
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.acting-close:hover {
+  background:
+    rgba(255,255,255,0.22);
+
+  transform: rotate(90deg);
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+  .acting-page {
+    padding:
+      100px 24px
+      80px;
+  }
+
+  .acting-grid {
+    gap: 28px;
+  }
+
+  .acting-play {
+    width: 70px;
+    height: 70px;
+
+    font-size: 24px;
+  }
+
+  .acting-info h3 {
+    font-size: 1.2rem;
+  }
+}

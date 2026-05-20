@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import VideoSection from "./components/ThumbnailCard";
+import Navbar from "./components/Navbar";
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -52,137 +53,77 @@ export default function Home() {
       <div ref={cursorDotRef} className="cursor-dot" aria-hidden="true" />
 
       {/* NAV */}
-      <nav className={`navbar ${scrolled ? "navbar--scrolled" : ""}`}>
-        <div className="navbar__inner">
-          <Link href="/" className="navbar__logo">
-            <span className="logo-first">NIKHIL</span>
-            <span className="logo-last">VERMA</span>
-          </Link>
-
-          <ul className="navbar__links">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link href={link.href} className="navbar__link">
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-            <li>
-              <Link href="/contact" className="navbar__cta">
-                Book Now
-              </Link>
-            </li>
-          </ul>
-
-          <button
-            className={`hamburger ${menuOpen ? "hamburger--open" : ""}`}
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle menu"
-          >
-            <span />
-            <span />
-            <span />
-          </button>
-        </div>
-
-        <div className={`mobile-menu ${menuOpen ? "mobile-menu--open" : ""}`}>
-          {navLinks.map((link, i) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="mobile-menu__link"
-              style={{ animationDelay: `${i * 80}ms` }}
-              onClick={() => setMenuOpen(false)}
-            >
-              {link.label}
-            </Link>
-          ))}
-          <Link
-            href="/contact"
-            className="mobile-menu__cta"
-            onClick={() => setMenuOpen(false)}
-          >
-            Book Now
-          </Link>
-        </div>
-      </nav>
+     <Navbar></Navbar>
 
       <main>
-        {/* HERO */}
-        <section className={`hero ${heroLoaded ? "hero--loaded" : ""}`}>
-          <div className="hero__orb hero__orb--1" aria-hidden="true" />
-          <div className="hero__orb hero__orb--2" aria-hidden="true" />
-          <div className="hero__orb hero__orb--3" aria-hidden="true" />
+     {/* HERO */}
+<section className={`hero ${heroLoaded ? "hero--loaded" : ""}`}>
+  {/* Background Image */}
+  <div className="hero__bg">
+    <Image
+      src="/heronew.JPG"
+      alt="Nikhil Verma"
+      fill
+      priority
+      className="hero__bg-image"
+    />
+  </div>
 
-          <div className="glitter-field" aria-hidden="true">
-            {Array.from({ length: 30 }).map((_, i) => (
-              <span
-                key={i}
-                className="glitter"
-                style={{
-                  left: `${(i * 37 + 11) % 100}%`,
-                  top: `${(i * 53 + 7) % 100}%`,
-                  animationDelay: `${(i * 0.3) % 4}s`,
-                  animationDuration: `${2 + (i % 3)}s`,
-                }}
-              />
-            ))}
-          </div>
+  {/* Dark Overlay */}
+  <div className="hero__overlay" />
 
-          <div className="hero__content">
-            <p className="hero__eyebrow">Model · Actor · Icon</p>
-            <h1 className="hero__name">
-              <span className="hero__name-first">NIKHIL</span>
-              <span className="hero__name-last">VERMA</span>
-            </h1>
-            <p className="hero__tagline">
-              Where discipline <br />
-              <em>transforms into performance.</em>
-            </p>
-            <div className="hero__actions">
-              <Link href="/gallery" className="btn btn--gold">
-                View Portfolio
-              </Link>
-              <Link href="/contact" className="btn btn--ghost">
-                Get in Touch
-              </Link>
-            </div>
-          </div>
+  {/* Decorative Orbs */}
+  <div className="hero__orb hero__orb--1" aria-hidden="true" />
+  <div className="hero__orb hero__orb--2" aria-hidden="true" />
+  <div className="hero__orb hero__orb--3" aria-hidden="true" />
 
-          <div className="hero__image-panel">
-            <div className="hero__image-frame">
-              <div className="hero__image">
-                <Image
-                  src="/heronew.JPG"
-                  alt="Nikhil Verma Actor Model"
-                  fill
-                  priority
-                  className="hero__img"
-                />
-              </div>
-              <div className="hero__image-border" aria-hidden="true" />
-            </div>
-            <div className="hero__stats">
-              <div className="hero__stat">
-                {/* <strong>120+</strong>
-                <span>Campaigns</span>
-              </div>
-              <div className="hero__stat">
-                <strong>40+</strong>
-                <span>Countries</span>
-              </div>
-              <div className="hero__stat">
-                <strong>8</strong>
-                <span>Awards</span> */}
-              </div>
-            </div>
-          </div>
+  {/* Glitter */}
+  <div className="glitter-field" aria-hidden="true">
+    {Array.from({ length: 30 }).map((_, i) => (
+      <span
+        key={i}
+        className="glitter"
+        style={{
+          left: `${(i * 37 + 11) % 100}%`,
+          top: `${(i * 53 + 7) % 100}%`,
+          animationDelay: `${(i * 0.3) % 4}s`,
+          animationDuration: `${2 + (i % 3)}s`,
+        }}
+      />
+    ))}
+  </div>
 
-          <div className="hero__scroll-hint" aria-hidden="true">
-            <span>Scroll</span>
-            <div className="scroll-line" />
-          </div>
-        </section>
+  {/* Content */}
+  <div className="hero__content">
+    <p className="hero__eyebrow">Model · Actor · Icon</p>
+
+    <h1 className="hero__name">
+      <span className="hero__name-first">NIKHIL</span>
+      <span className="hero__name-last">VERMA</span>
+    </h1>
+
+    <p className="hero__tagline">
+      Where discipline <br />
+      <em>transforms into performance.</em>
+    </p>
+
+    <div className="hero__actions">
+      <Link href="/gallery" className="btn btn--gold">
+        View Portfolio
+      </Link>
+
+      <Link href="/contact" className="btn btn--ghost">
+        Get in Touch
+      </Link>
+    </div>
+  </div>
+
+  {/* Scroll Hint */}
+  <div className="hero__scroll-hint" aria-hidden="true">
+    <span>Scroll</span>
+    <div className="scroll-line" />
+  </div>
+</section>
 
         {/* ABOUT */}
         <section className="about section">
@@ -282,8 +223,8 @@ export default function Home() {
             ))}
           </div>
           <div className="work__more">
-            <Link href="/work" className="btn btn--ghost-light">
-              View All Work →
+            <Link href="/work/advertisements" className="btn btn--ghost-light">
+              View All Ads →
             </Link>
           </div>
         </section>

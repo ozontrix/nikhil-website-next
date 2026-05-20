@@ -1,0 +1,334 @@
+/* app/web-series/web-series.css */
+
+.series-page {
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(130, 100, 40, 0.08),
+      transparent 30%
+    ),
+    #050505;
+
+  color: white;
+
+  padding:
+    130px 7vw
+    100px;
+
+  overflow-x: hidden;
+}
+
+/* HERO */
+
+.series-hero {
+  max-width: 920px;
+
+  margin-bottom: 90px;
+}
+
+.series-subtitle {
+  color: #8f8f8f;
+
+  font-size: 12px;
+
+  letter-spacing: 0.28em;
+
+  margin-bottom: 22px;
+}
+
+.series-hero h1 {
+  font-size: clamp(
+    3rem,
+    7vw,
+    6rem
+  );
+
+  line-height: 0.95;
+
+  font-weight: 600;
+
+  letter-spacing: -0.05em;
+
+  margin-bottom: 28px;
+}
+
+.series-hero h1 span {
+  color: #d8b36a;
+}
+
+.series-description {
+  max-width: 650px;
+
+  color: #a0a0a0;
+
+  font-size: 1rem;
+
+  line-height: 1.8;
+}
+
+/* GRID */
+
+.series-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(340px, 1fr)
+    );
+
+  gap: 38px;
+}
+
+/* CARD */
+
+.series-card {
+  cursor: pointer;
+
+  transition:
+    transform 0.45s ease,
+    opacity 0.45s ease;
+}
+
+.series-card:hover {
+  transform: translateY(-8px);
+}
+
+/* IMAGE */
+
+.series-image-wrapper {
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 28px;
+
+  aspect-ratio: 16 / 9;
+
+  background: #111;
+
+  box-shadow:
+    0 20px 60px
+    rgba(0,0,0,0.45);
+}
+
+.series-image-wrapper img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+
+  transition:
+    transform 0.8s ease,
+    filter 0.8s ease;
+}
+
+.series-card:hover img {
+  transform: scale(1.06);
+
+  filter: brightness(0.72);
+}
+
+/* OVERLAY */
+
+.series-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(0,0,0,0.7),
+      rgba(0,0,0,0.1)
+    );
+}
+
+/* PLAY */
+
+.series-play {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  transform:
+    translate(-50%, -50%);
+
+  width: 82px;
+  height: 82px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    rgba(255,255,255,0.12);
+
+  backdrop-filter: blur(12px);
+
+  font-size: 28px;
+
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease;
+}
+
+.series-card:hover .series-play {
+  transform:
+    translate(-50%, -50%)
+    scale(1.08);
+
+  background:
+    rgba(255,255,255,0.2);
+}
+
+/* INFO */
+
+.series-info {
+  padding-top: 22px;
+}
+
+.series-meta {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 10px;
+
+  color: #989898;
+
+  font-size: 0.8rem;
+
+  letter-spacing: 0.14em;
+
+  text-transform: uppercase;
+}
+
+.series-info h3 {
+  font-size: 1.6rem;
+
+  font-weight: 500;
+
+  letter-spacing: -0.03em;
+}
+
+/* MODAL */
+
+.series-modal {
+  position: fixed;
+
+  inset: 0;
+
+  background:
+    rgba(0,0,0,0.82);
+
+  backdrop-filter: blur(12px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 9999;
+
+  padding: 30px;
+}
+
+.series-modal-content {
+  position: relative;
+
+  width: 100%;
+  max-width: 1200px;
+
+  aspect-ratio: 16 / 9;
+
+  border-radius: 26px;
+
+  overflow: hidden;
+
+  background: black;
+
+  box-shadow:
+    0 20px 100px
+    rgba(0,0,0,0.7);
+}
+
+.series-modal-content iframe {
+  width: 100%;
+  height: 100%;
+
+  border: none;
+}
+
+/* CLOSE */
+
+.series-close {
+  position: absolute;
+
+  top: 18px;
+  right: 18px;
+
+  width: 46px;
+  height: 46px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255,255,255,0.12);
+
+  color: white;
+
+  font-size: 18px;
+
+  cursor: pointer;
+
+  z-index: 10;
+
+  backdrop-filter: blur(12px);
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.series-close:hover {
+  background:
+    rgba(255,255,255,0.22);
+
+  transform: rotate(90deg);
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+  .series-page {
+    padding:
+      100px 24px
+      80px;
+  }
+
+  .series-grid {
+    gap: 28px;
+  }
+
+  .series-play {
+    width: 70px;
+    height: 70px;
+
+    font-size: 24px;
+  }
+
+  .series-info h3 {
+    font-size: 1.2rem;
+  }
+}

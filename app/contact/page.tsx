@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import {Camera, Film, Mail, Phone } from "lucide-react";
 import "./contact.css";
 import Link from "next/link";
+import Navbar from "../components/Navbar";
 
 const navLinks = [
     { label: "Home", href: "/" },
@@ -131,60 +132,7 @@ export default function ContactPage() {
       <div ref={cursorDotRef} className="cursor-dot" aria-hidden="true" />
 
       {/* NAV */}
-      <nav className={`navbar ${scrolled ? "navbar--scrolled" : ""}`}>
-        <div className="navbar__inner">
-          <Link href="/" className="navbar__logo">
-            <span className="logo-first">NIKHIL</span>
-            <span className="logo-last">VERMA</span>
-          </Link>
-
-          <ul className="navbar__links">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link href={link.href} className="navbar__link">
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-            <li>
-              <Link href="/contact" className="navbar__cta">
-                Book Now
-              </Link>
-            </li>
-          </ul>
-
-          <button
-            className={`hamburger ${menuOpen ? "hamburger--open" : ""}`}
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle menu"
-          >
-            <span />
-            <span />
-            <span />
-          </button>
-        </div>
-
-        <div className={`mobile-menu ${menuOpen ? "mobile-menu--open" : ""}`}>
-          {navLinks.map((link, i) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="mobile-menu__link"
-              style={{ animationDelay: `${i * 80}ms` }}
-              onClick={() => setMenuOpen(false)}
-            >
-              {link.label}
-            </Link>
-          ))}
-          <Link
-            href="/contact"
-            className="mobile-menu__cta"
-            onClick={() => setMenuOpen(false)}
-          >
-            Book Now
-          </Link>
-        </div>
-      </nav>
+           <Navbar></Navbar>
       {/* HERO */}
 
       <section className="contact-hero">
