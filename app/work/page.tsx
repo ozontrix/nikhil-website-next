@@ -1,0 +1,294 @@
+// app/work/page.tsx
+
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+import {Camera, Film, Mail, Phone } from "lucide-react";
+import "./work.css";
+import Link from "next/link";
+
+const videos = [
+  {
+    title: "Acting Reel",
+    category: "Showreel",
+    thumbnail:
+      "https://img.youtube.com/vi/c480Rsn2iac/maxresdefault.jpg",
+    videoId: "c480Rsn2iac",
+  },
+  {
+    title: "Kia India",
+    category: "Commercial",
+    thumbnail:
+      "https://img.youtube.com/vi/qc6-C3_478E/maxresdefault.jpg",
+    videoId: "qc6-C3_478E",
+  },
+  {
+    title: "Oreo x Dhoni",
+    category: "Campaign",
+    thumbnail:
+      "https://img.youtube.com/vi/pa3UKc18A-U/maxresdefault.jpg",
+    videoId: "pa3UKc18A-U",
+  },
+  {
+    title: "Strings",
+    category: "Short Film",
+    thumbnail:
+      "https://img.youtube.com/vi/5Cx_r7su1Ec/maxresdefault.jpg",
+    videoId: "5Cx_r7su1Ec",
+  },
+  {
+    title: "Dettol",
+    category: "Commercial",
+    thumbnail:
+      "https://img.youtube.com/vi/ZWPhM1hgeYs/maxresdefault.jpg",
+    videoId: "ZWPhM1hgeYs",
+  },
+  {
+    title: "Hamlet",
+    category: "Monologue",
+    thumbnail:
+      "https://img.youtube.com/vi/A-aC8ALImM0/maxresdefault.jpg",
+    videoId: "A-aC8ALImM0",
+  },
+];
+
+const navLinks = [
+    { label: "Home", href: "/" },
+    { label: "Gallery", href: "/gallery" },
+    { label: "Work", href: "/work" },
+    { label: "Contact", href: "/contact" },
+  ];
+
+export default function WorkPage() {
+  const [activeVideo, setActiveVideo] = useState<string | null>(null);
+  const [scrolled, setScrolled] = useState(false);
+    const cursorRef = useRef<HTMLDivElement>(null);
+    const cursorDotRef = useRef<HTMLDivElement>(null);
+      const [menuOpen, setMenuOpen] = useState(false);
+
+      useEffect(() => {
+      
+          const handleScroll = () => setScrolled(window.scrollY > 60);
+          window.addEventListener("scroll", handleScroll);
+      
+          const moveCursor = (e: MouseEvent) => {
+            if (cursorRef.current && cursorDotRef.current) {
+              cursorRef.current.style.transform = `translate(${e.clientX - 20}px, ${e.clientY - 20}px)`;
+              cursorDotRef.current.style.transform = `translate(${e.clientX - 4}px, ${e.clientY - 4}px)`;
+            }
+          };
+          window.addEventListener("mousemove", moveCursor);
+      
+          return () => {
+            window.removeEventListener("scroll", handleScroll);
+            window.removeEventListener("mousemove", moveCursor);
+          };
+        }, []);
+
+  return (
+    <>
+    <main className="work-page">
+        {/* Custom Cursor */}
+      <div ref={cursorRef} className="cursor-ring" aria-hidden="true" />
+      <div ref={cursorDotRef} className="cursor-dot" aria-hidden="true" />
+
+      {/* NAV */}
+      <nav className={`navbar ${scrolled ? "navbar--scrolled" : ""}`}>
+        <div className="navbar__inner">
+          <Link href="/" className="navbar__logo">
+            <span className="logo-first">NIKHIL</span>
+            <span className="logo-last">VERMA</span>
+          </Link>
+
+          <ul className="navbar__links">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <Link href={link.href} className="navbar__link">
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+            <li>
+              <Link href="/contact" className="navbar__cta">
+                Book Now
+              </Link>
+            </li>
+          </ul>
+
+          <button
+            className={`hamburger ${menuOpen ? "hamburger--open" : ""}`}
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
+
+        <div className={`mobile-menu ${menuOpen ? "mobile-menu--open" : ""}`}>
+          {navLinks.map((link, i) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="mobile-menu__link"
+              style={{ animationDelay: `${i * 80}ms` }}
+              onClick={() => setMenuOpen(false)}
+            >
+              {link.label}
+            </Link>
+          ))}
+          <Link
+            href="/contact"
+            className="mobile-menu__cta"
+            onClick={() => setMenuOpen(false)}
+          >
+            Book Now
+          </Link>
+        </div>
+      </nav>
+      {/* HERO */}
+
+      <section className="work-hero">
+        <p className="hero-subtitle">
+          SELECTED WORK
+        </p>
+
+        <h1>
+          A legacy of <span>performances</span>,
+          campaigns, and stories.
+        </h1>
+
+        <p className="hero-description">
+          From theatre-rooted performances to
+          cinematic commercials and emotionally
+          driven storytelling.
+        </p>
+      </section>
+
+      {/* GRID */}
+
+      <section className="video-grid">
+        {videos.map((video, index) => (
+          <div
+            key={index}
+            className="video-card"
+            onClick={() =>
+              setActiveVideo(video.videoId)
+            }
+          >
+            <div className="video-image-wrapper">
+              <img
+                src={video.thumbnail}
+                alt={video.title}
+              />
+
+              <div className="video-overlay" />
+
+              <div className="play-button">
+                ▶
+              </div>
+            </div>
+
+            <div className="video-info">
+              <p>{video.category}</p>
+              <h3>{video.title}</h3>
+            </div>
+          </div>
+        ))}
+      </section>
+
+      {/* MODAL */}
+
+      {activeVideo && (
+        <div
+          className="video-modal"
+          onClick={() =>
+            setActiveVideo(null)
+          }
+        >
+          <div
+            className="video-modal-content"
+            onClick={(e) =>
+              e.stopPropagation()
+            }
+          >
+            <button
+              className="close-btn"
+              onClick={() =>
+                setActiveVideo(null)
+              }
+            >
+              ✕
+            </button>
+
+            <iframe
+              src={`https://www.youtube.com/embed/${activeVideo}?autoplay=1`}
+              title="Video Player"
+              allow="autoplay; encrypted-media"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      )}
+      
+    </main>
+    {/* FOOTER */}
+      <footer className="footer">
+        <div className="footer__inner">
+          <div className="footer__logo">
+            <span className="logo-first">NIKHIL</span>
+            <span className="logo-last">VERMA</span>
+          </div>
+          <div className="footer__links">
+            {navLinks.map((l) => (
+              <Link key={l.href} href={l.href} className="footer__link">
+                {l.label}
+              </Link>
+            ))}
+          </div>
+          <div className="footer__socials">
+            <a
+              href="https://instagram.com/nikhilverma19"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer__social"
+              aria-label="Instagram"
+            >
+              <Camera size={18} />
+            </a>
+
+            <a
+              href="https://m.imdb.com/name/nm12756017/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer__social"
+              aria-label="IMDb"
+            >
+              <Film size={18} />
+            </a>
+
+            <a
+              href="mailto:actornikhilverma@gmail.com"
+              className="footer__social"
+              aria-label="Email"
+            >
+              <Mail size={18} />
+            </a>
+
+            <a
+              href="tel:+91828310109"
+              className="footer__social"
+              aria-label="Phone"
+            >
+              <Phone size={18} />
+            </a>
+          </div>
+          <p className="footer__copy">
+            © {new Date().getFullYear()} Nikhil Verma. All rights reserved.
+          </p>
+        </div>
+      </footer>
+    </>
+  );
+}
