@@ -319,3 +319,459 @@
     font-size: 1.2rem;
   }
 }
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  z-index: 1000;
+
+  transition:
+    background 0.4s ease,
+    border 0.4s ease,
+    backdrop-filter 0.4s ease,
+    transform 0.4s ease;
+
+  padding: 18px 0;
+}
+
+.navbar--scrolled {
+  background:
+    rgba(7, 7, 7, 0.72);
+
+  backdrop-filter: blur(18px);
+
+  border-bottom:
+    1px solid
+    rgba(255,255,255,0.06);
+
+  box-shadow:
+    0 10px 40px
+    rgba(0,0,0,0.2);
+}
+
+/* =========================
+   INNER
+========================= */
+
+.navbar__inner {
+  width: 100%;
+
+  max-width: 1440px;
+
+  margin: 0 auto;
+
+  padding: 0 7vw;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 30px;
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.navbar__logo {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  text-decoration: none;
+
+  color: white;
+
+  position: relative;
+
+  z-index: 1002;
+}
+
+.logo-first,
+.logo-last {
+  font-size: 1rem;
+
+  letter-spacing: 0.28em;
+
+  font-weight: 600;
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.logo-last {
+  color: #d8b36a;
+}
+
+.navbar__logo:hover .logo-first {
+  opacity: 0.7;
+}
+
+.navbar__logo:hover .logo-last {
+  transform: translateX(2px);
+}
+
+/* =========================
+   DESKTOP LINKS
+========================= */
+
+.navbar__links {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  list-style: none;
+}
+
+.navbar__link {
+  position: relative;
+
+  text-decoration: none;
+
+  color: #d5d5d5;
+
+  font-size: 0.92rem;
+
+  letter-spacing: 0.08em;
+
+  padding: 10px 14px;
+
+  transition:
+    color 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.navbar__link::after {
+  content: "";
+
+  position: absolute;
+
+  left: 14px;
+  bottom: 6px;
+
+  width: 0;
+
+  height: 1px;
+
+  background: #d8b36a;
+
+  transition: width 0.3s ease;
+}
+
+.navbar__link:hover {
+  color: white;
+}
+
+.navbar__link:hover::after {
+  width: calc(100% - 28px);
+}
+
+/* =========================
+   CTA
+========================= */
+
+.navbar__cta {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  height: 48px;
+
+  padding: 0 24px;
+
+  border-radius: 999px;
+
+  text-decoration: none;
+
+  background: #d8b36a;
+
+  color: black;
+
+  font-size: 0.92rem;
+
+  font-weight: 600;
+
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease,
+    box-shadow 0.3s ease;
+
+  box-shadow:
+    0 10px 30px
+    rgba(216,179,106,0.18);
+}
+
+.navbar__cta:hover {
+  transform: translateY(-2px);
+
+  opacity: 0.92;
+
+  box-shadow:
+    0 16px 40px
+    rgba(216,179,106,0.28);
+}
+
+/* =========================
+   HAMBURGER
+========================= */
+
+.hamburger {
+  width: 52px;
+  height: 52px;
+
+  display: none;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  gap: 5px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255,255,255,0.05);
+
+  backdrop-filter: blur(10px);
+
+  cursor: pointer;
+
+  z-index: 1002;
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.hamburger:hover {
+  background:
+    rgba(255,255,255,0.1);
+}
+
+.hamburger span {
+  width: 22px;
+  height: 2px;
+
+  background: white;
+
+  border-radius: 999px;
+
+  transition:
+    transform 0.35s ease,
+    opacity 0.35s ease,
+    width 0.35s ease;
+}
+
+/* OPEN */
+
+.hamburger--open span:nth-child(1) {
+  transform:
+    translateY(7px)
+    rotate(45deg);
+}
+
+.hamburger--open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger--open span:nth-child(3) {
+  transform:
+    translateY(-7px)
+    rotate(-45deg);
+}
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+.mobile-menu {
+  position: fixed;
+
+  top: 0;
+  right: -100%;
+
+  width: min(90vw, 420px);
+
+  height: 100vh;
+
+  background:
+    rgba(8,8,8,0.96);
+
+  backdrop-filter: blur(20px);
+
+  border-left:
+    1px solid
+    rgba(255,255,255,0.06);
+
+  padding:
+    120px 40px
+    40px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 14px;
+
+  transition:
+    right 0.45s
+    cubic-bezier(0.77,0,0.175,1);
+
+  z-index: 1001;
+}
+
+.mobile-menu--open {
+  right: 0;
+}
+
+/* LINKS */
+
+.mobile-menu__link {
+  opacity: 0;
+
+  transform: translateY(20px);
+
+  color: white;
+
+  text-decoration: none;
+
+  font-size: 1.2rem;
+
+  letter-spacing: -0.02em;
+
+  padding: 18px 0;
+
+  border-bottom:
+    1px solid
+    rgba(255,255,255,0.05);
+
+  animation:
+    mobileFade 0.5s forwards;
+}
+
+.mobile-menu__link:hover {
+  color: #d8b36a;
+}
+
+.mobile-menu__cta {
+  margin-top: 24px;
+
+  height: 56px;
+
+  border-radius: 999px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: #d8b36a;
+
+  color: black;
+
+  text-decoration: none;
+
+  font-weight: 600;
+
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.mobile-menu__cta:hover {
+  transform: translateY(-2px);
+
+  opacity: 0.92;
+}
+
+/* =========================
+   OVERLAY
+========================= */
+
+.mobile-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  background:
+    rgba(0,0,0,0.4);
+
+  backdrop-filter: blur(4px);
+
+  z-index: 999;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition: opacity 0.35s ease;
+}
+
+.mobile-overlay--open {
+  opacity: 1;
+
+  pointer-events: auto;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes mobileFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 960px) {
+  .navbar__links {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .navbar__inner {
+    padding: 0 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .logo-first,
+  .logo-last {
+    font-size: 0.82rem;
+
+    letter-spacing: 0.2em;
+  }
+
+  .mobile-menu {
+    width: 100%;
+  }
+}

@@ -50,6 +50,112 @@ const videos = [
       "https://img.youtube.com/vi/A-aC8ALImM0/maxresdefault.jpg",
     videoId: "A-aC8ALImM0",
   },
+    {
+    title: "Dissonance",
+    category: "Short Film",
+    thumbnail:
+      "https://img.youtube.com/vi/sCK-1Mn8QYU/maxresdefault.jpg",
+    videoId: "sCK-1Mn8QYU",
+  },
+  //   {
+  //   title: "Oreo X Dhoni 2022",
+  //   category: "Commercial",
+  //   thumbnail:
+  //     "https://img.youtube.com/vi/0tvfNnUHFYA/maxresdefault.jpg",
+  //   videoId: "0tvfNnUHFYA",
+  // },
+    {
+    title: "Himalaya ad",
+    category: "Commercial",
+    thumbnail:
+      "https://img.youtube.com/vi/Dh14AplSrF4/maxresdefault.jpg",
+    videoId: "Dh14AplSrF4",
+  },
+    {
+    title: "Tata mutual funds",
+    category: "Commercial",
+    thumbnail:
+      "https://img.youtube.com/vi/JPwHPqyQNtU/maxresdefault.jpg",
+    videoId: "JPwHPqyQNtU",
+  },
+    {
+    title: "Tata SIP",
+    category: "Commercial",
+    thumbnail:
+      "https://img.youtube.com/vi/SbHru0ADztQ/maxresdefault.jpg",
+    videoId: "SbHru0ADztQ",
+  },
+  //   {
+  //   title: "Sundrop popz",
+  //   category: "Commercial",
+  //   thumbnail:
+  //     "https://img.youtube.com/vi/a8SlpdJ6Sn4/maxresdefault.jpg",
+  //   videoId: "a8SlpdJ6Sn4",
+  // },
+    {
+    title: "Himalaya toothpaste ad",
+    category: "Commercial",
+    thumbnail:
+      "https://img.youtube.com/vi/n2ZFYaB5fgs/maxresdefault.jpg",
+    videoId: "n2ZFYaB5fgs",
+  },
+    {
+    title: "NCDEX",
+    category: "Commercial",
+    thumbnail:
+      "https://img.youtube.com/vi/YLC-w8gXHpY/maxresdefault.jpg",
+    videoId: "YLC-w8gXHpY",
+  },
+    {
+    title: "Extra-marks",
+    category: "Commercial",
+    thumbnail:
+      "https://img.youtube.com/vi/izQc_ORJJRA/maxresdefault.jpg",
+    videoId: "izQc_ORJJRA",
+  },
+    {
+    title: "Highlander",
+    category: "Commercial",
+    thumbnail:
+      "https://img.youtube.com/vi/15sNYfkcNS8/maxresdefault.jpg",
+    videoId: "15sNYfkcNS8",
+  },
+  //   {
+  //   title: "Crysta IVF",
+  //   category: "Commercial",
+  //   thumbnail:
+  //     "https://img.youtube.com/vi/sHWwHsfmJqM/maxresdefault.jpg",
+  //   videoId: "sHWwHsfmJqM",
+  // },
+    {
+    title: "Spaces mattress",
+    category: "Commercial",
+    thumbnail:
+      "https://img.youtube.com/vi/C0KX1BeETqw/maxresdefault.jpg",
+    videoId: "C0KX1BeETqw",
+  },
+  {
+    title: "Adam from ‘The shape of things’",
+    category: "Monologue",
+    thumbnail:
+      "https://img.youtube.com/vi/siqFJY6f2hA/maxresdefault.jpg",
+    videoId: "siqFJY6f2hA",
+  },
+    {
+    title: "Shylock from ‘Merchant of Venice’",
+    category: "Monologue",
+    thumbnail:
+      "https://img.youtube.com/vi/ONdOcckFUW8/maxresdefault.jpg",
+    videoId: "ONdOcckFUW8",
+  },
+    {
+    title: "Biff from ‘The death of a salesman’",
+    category: "Monologue",
+    thumbnail:
+      "https://img.youtube.com/vi/01xlMj7-8AA/maxresdefault.jpg",
+    videoId: "01xlMj7-8AA",
+  },
+  
 ];
 
 const navLinks = [
@@ -85,6 +191,18 @@ export default function WorkPage() {
           };
         }, []);
 
+        useEffect(() => {
+  if (menuOpen) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "auto";
+  }
+
+  return () => {
+    document.body.style.overflow = "auto";
+  };
+}, [menuOpen]);
+
   return (
     <>
     <main className="work-page">
@@ -94,6 +212,7 @@ export default function WorkPage() {
 
       {/* NAV */}
       <nav className={`navbar ${scrolled ? "navbar--scrolled" : ""}`}>
+        
         <div className="navbar__inner">
           <Link href="/" className="navbar__logo">
             <span className="logo-first">NIKHIL</span>
@@ -125,7 +244,14 @@ export default function WorkPage() {
             <span />
           </button>
         </div>
-
+<div
+  className={`mobile-overlay ${
+    menuOpen
+      ? "mobile-overlay--open"
+      : ""
+  }`}
+  onClick={() => setMenuOpen(false)}
+/>
         <div className={`mobile-menu ${menuOpen ? "mobile-menu--open" : ""}`}>
           {navLinks.map((link, i) => (
             <Link
