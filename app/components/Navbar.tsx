@@ -18,12 +18,13 @@ const NAV_LINKS = [
       { label: "Web Series", href: "/work/web-series" },
       { label: "Advertisements", href: "/work/advertisements" },
       { label: "Monologue", href: "/work/monologue" },
+      { label: "Upcoming Project", href: "/work/upcoming-project" },
       
       
       
     ],
   },
-
+{ label: "Download CV", href: "https://actornikhilverma.com/nikhil-resume.jpeg" },
   { label: "Contact", href: "/contact" },
 ];
 

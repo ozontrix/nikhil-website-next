@@ -5,6 +5,7 @@ import { Camera, Film, Mail, Phone } from "lucide-react";
 import "./monologues.css";
 import Link from "next/link";
 import Navbar from "../../components/Navbar";
+import { FaImdb, FaInstagram } from "react-icons/fa";
 
 const monologues = [
   {
@@ -172,26 +173,16 @@ export default function MonologuePage() {
       <footer className="footer">
         <div className="footer__inner">
           <div className="footer__logo">
-            <span className="logo-first">
-              NIKHIL
-            </span>
-            <span className="logo-last">
-              VERMA
-            </span>
+            <span className="logo-first">NIKHIL</span>
+            <span className="logo-last">VERMA</span>
           </div>
-
           <div className="footer__links">
             {navLinks.map((l) => (
-              <Link
-                key={l.href}
-                href={l.href}
-                className="footer__link"
-              >
+              <Link key={l.href} href={l.href} className="footer__link">
                 {l.label}
               </Link>
             ))}
           </div>
-
           <div className="footer__socials">
             <a
               href="https://instagram.com/nikhilverma19"
@@ -200,7 +191,7 @@ export default function MonologuePage() {
               className="footer__social"
               aria-label="Instagram"
             >
-              <Camera size={18} />
+              <FaInstagram size={18} />
             </a>
 
             <a
@@ -210,7 +201,7 @@ export default function MonologuePage() {
               className="footer__social"
               aria-label="IMDb"
             >
-              <Film size={18} />
+              <FaImdb size={18} />
             </a>
 
             <a
@@ -229,10 +220,9 @@ export default function MonologuePage() {
               <Phone size={18} />
             </a>
           </div>
-
           <p className="footer__copy">
-            © {new Date().getFullYear()} Nikhil
-            Verma. All rights reserved.
+            © {new Date().getFullYear()} Nikhil Verma. All rights reserved.
+            Designed By <a href="https://ozontrix.com">Ozontrix</a>
           </p>
         </div>
       </footer>

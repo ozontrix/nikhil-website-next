@@ -144,7 +144,7 @@ export default function Home() {
               </div>
               <div className="about__quote">
                 <blockquote>
-                  &ldquo;This universe in me and me in this universe.&rdquo;
+                  &ldquo;"An actor is a painter, but he's also the brush, the paint, and the canvas. He draws himself from himself onto himself, thus becoming the painting itself."&rdquo;
                 </blockquote>
                 <cite>— Nikhil Verma</cite>
               </div>

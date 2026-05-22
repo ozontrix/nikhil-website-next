@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import {Camera, Film, Mail, Phone } from "lucide-react";
 import "./gallery.css";
 import Link from "next/link";
-import Navbar from "../components/Navbar";
+import Navbar from "../../components/Navbar";
 import { FaImdb, FaInstagram } from "react-icons/fa";
 
 const navLinks = [
@@ -107,50 +107,21 @@ export default function GalleryPage() {
 
       <section className="gallery-hero">
         <p className="gallery-subtitle">
-          GALLERY
+          Upcoming Projects
         </p>
 
-        <h1>
+        {/* <h1>
           Portraits shaped by
           <span> stillness</span>,
           theatre, and cinema.
-        </h1>
+        </h1> */}
 
         <p className="gallery-description">
-          A curated collection of frames,
-          editorial portraits, rehearsal
-          moments, and cinematic studies.
+          You will get future project updates here.
         </p>
       </section>
 
-      {/* MASONRY GRID */}
-
-      <section className="gallery-grid">
-        {galleryImages.map((image, index) => (
-          <div
-            key={index}
-            className={`gallery-card ${
-              index % 3 === 0
-                ? "large"
-                : ""
-            }`}
-          >
-            <div className="gallery-image-wrapper">
-              <img
-                src={image.src}
-                alt={image.title}
-              />
-
-              <div className="gallery-overlay">
-                <div className="gallery-info">
-                  <p>{image.location}</p>
-                  <h3>{image.title}</h3>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </section>
+      
       
     </main>
     {/* FOOTER */}
