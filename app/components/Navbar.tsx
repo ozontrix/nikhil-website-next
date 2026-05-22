@@ -18,7 +18,7 @@ const NAV_LINKS = [
       { label: "Web Series", href: "/work/web-series" },
       { label: "Advertisements", href: "/work/advertisements" },
       { label: "Monologue", href: "/work/monologue" },
-      { label: "Upcoming Project", href: "/work/upcoming-project" },
+      { label: "Upcoming Projects", href: "/work/upcoming-projects" },
       
       
       
@@ -198,13 +198,13 @@ export default function Navbar() {
             </div>
           ))}
 
-          <Link
+          {/* <Link
             href="/contact"
             className={styles.mobileCta}
             onClick={() => setMenuOpen(false)}
           >
             Book Now
-          </Link>
+          </Link> */}
         </div>
       </div>
     </>
