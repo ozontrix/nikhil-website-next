@@ -14,10 +14,13 @@ const NAV_LINKS = [
     label: "Work",
     href: "/work",
     submenu: [
-      { label: "Monologue", href: "/work/monologue" },
-      { label: "Advertisements", href: "/work/advertisements" },
+      { label: "Acting Reels", href: "/work/acting-videos" },
       { label: "Web Series", href: "/work/web-series" },
-      { label: "Acting Videos", href: "/work/acting-videos" },
+      { label: "Advertisements", href: "/work/advertisements" },
+      { label: "Monologue", href: "/work/monologue" },
+      
+      
+      
     ],
   },
 

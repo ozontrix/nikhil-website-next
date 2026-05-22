@@ -8,7 +8,7 @@ import Navbar from "../../components/Navbar";
 
 const actingVideos = [
   {
-    title: "Emotional Breakdown Scene",
+    title: "Acting Reel",
     type: "Drama",
     duration: "01:35",
     thumbnail:
@@ -75,7 +75,7 @@ export default function ActingVideosPage() {
 
       <section className="acting-hero">
         <p className="acting-subtitle">
-          ACTING VIDEOS
+          ACTING REELS
         </p>
 
         <h1>

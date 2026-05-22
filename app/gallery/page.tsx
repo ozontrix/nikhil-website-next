@@ -17,6 +17,11 @@ const navLinks = [
 
 const galleryImages = [
   {
+    src: "/gallery/6.JPG",
+    title: "",
+    location: "",
+  },
+  {
     src: "/gallery/1.JPG",
     title: "",
     location: "",
@@ -40,7 +45,27 @@ const galleryImages = [
     src: "/gallery/5.JPG",
     title: "",
     location: "",
-  }
+  },
+  {
+    src: "/gallery/7.JPG",
+    title: "",
+    location: "",
+  },
+    {
+    src: "/gallery/8.JPG",
+    title: "",
+    location: "",
+  },
+    {
+    src: "/gallery/9.JPG",
+    title: "",
+    location: "",
+  },
+    {
+    src: "/gallery/10.JPG",
+    title: "",
+    location: "",
+  },
 ];
 
 export default function GalleryPage() {

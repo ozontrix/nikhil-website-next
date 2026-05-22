@@ -1,10 +1,11 @@
 "use client";
-import {Camera, Film, Mail, Phone } from "lucide-react";
+import { Camera, Film, Mail, Phone } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import VideoSection from "./components/ThumbnailCard";
 import Navbar from "./components/Navbar";
+import { FaImdb, FaInstagram } from "react-icons/fa";
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -41,9 +42,27 @@ export default function Home() {
   ];
 
   const featuredWork = [
-    { title: "Oreo X Dhoni", category: "ads", year: "2025", tag: "Cover", src:"pa3UKc18A-U" },
-    { title: "Dettol", category: "india", year: "2024", tag: "Cover", src:"ZWPhM1hgeYs" },
-    { title: "Tata mutual Funds", category: "ADS", year: "2024", tag: "side Role", src: "JPwHPqyQNtU" },
+    {
+      title: "Oreo X Dhoni",
+      category: "ads",
+      year: "2025",
+      tag: "Cover",
+      src: "pa3UKc18A-U",
+    },
+    {
+      title: "Dettol",
+      category: "india",
+      year: "2024",
+      tag: "Cover",
+      src: "ZWPhM1hgeYs",
+    },
+    {
+      title: "Tata mutual Funds",
+      category: "ADS",
+      year: "2024",
+      tag: "side Role",
+      src: "JPwHPqyQNtU",
+    },
   ];
 
   return (
@@ -53,77 +72,61 @@ export default function Home() {
       <div ref={cursorDotRef} className="cursor-dot" aria-hidden="true" />
 
       {/* NAV */}
-     <Navbar></Navbar>
+      <Navbar></Navbar>
 
       <main>
-     {/* HERO */}
-<section className={`hero ${heroLoaded ? "hero--loaded" : ""}`}>
-  {/* Background Image */}
-  <div className="hero__bg">
-    <Image
-      src="/heronew.JPG"
-      alt="Nikhil Verma"
-      fill
-      priority
-      className="hero__bg-image"
-    />
-  </div>
+        {/* HERO */}
+        <section className={`hero ${heroLoaded ? "hero--loaded" : ""}`}>
+          {/* Background Image */}
+          <div className="hero__bg">
+            <Image
+              src="/heronew.JPG"
+              alt="Nikhil Verma"
+              fill
+              priority
+              className="hero__bg-image"
+            />
+          </div>
 
-  {/* Dark Overlay */}
-  <div className="hero__overlay" />
+          {/* Dark Overlay */}
+          <div className="hero__overlay" />
 
-  {/* Decorative Orbs */}
-  <div className="hero__orb hero__orb--1" aria-hidden="true" />
-  <div className="hero__orb hero__orb--2" aria-hidden="true" />
-  <div className="hero__orb hero__orb--3" aria-hidden="true" />
+          {/* Decorative Orbs */}
+          <div className="hero__orb hero__orb--1" aria-hidden="true" />
+          <div className="hero__orb hero__orb--2" aria-hidden="true" />
+          <div className="hero__orb hero__orb--3" aria-hidden="true" />
 
-  {/* Glitter */}
-  <div className="glitter-field" aria-hidden="true">
-    {Array.from({ length: 30 }).map((_, i) => (
-      <span
-        key={i}
-        className="glitter"
-        style={{
-          left: `${(i * 37 + 11) % 100}%`,
-          top: `${(i * 53 + 7) % 100}%`,
-          animationDelay: `${(i * 0.3) % 4}s`,
-          animationDuration: `${2 + (i % 3)}s`,
-        }}
-      />
-    ))}
-  </div>
+          {/* Content */}
+          <div className="hero__content">
+            <p className="hero__eyebrow">Actor</p>
 
-  {/* Content */}
-  <div className="hero__content">
-    <p className="hero__eyebrow">Model · Actor · Icon</p>
+            <h1 className="hero__name">
+              <span className="hero__name-first">NIKHIL</span>
+              <span className="hero__name-last">VERMA</span>
+            </h1>
 
-    <h1 className="hero__name">
-      <span className="hero__name-first">NIKHIL</span>
-      <span className="hero__name-last">VERMA</span>
-    </h1>
+            <p className="hero__tagline">
+              Where discipline <br />
+              <em>transforms into performance.</em>
+            </p>
 
-    <p className="hero__tagline">
-      Where discipline <br />
-      <em>transforms into performance.</em>
-    </p>
+            <div className="hero__actions">
+              <Link href="/gallery" className="btn btn--gold">
+                View Portfolio
+              </Link>
 
-    <div className="hero__actions">
-      <Link href="/gallery" className="btn btn--gold">
-        View Portfolio
-      </Link>
+              <Link href="/contact" className="btn btn--ghost">
+                Get in Touch
+              </Link>
+            </div>
+          </div>
 
-      <Link href="/contact" className="btn btn--ghost">
-        Get in Touch
-      </Link>
-    </div>
-  </div>
-
-  {/* Scroll Hint */}
-  <div className="hero__scroll-hint" aria-hidden="true">
-    <span>Scroll</span>
-    <div className="scroll-line" />
-  </div>
-</section>
+          {/* Scroll Hint */}
+          <div className="hero__scroll-hint" aria-hidden="true">
+            <span>Scroll</span>
+            <div className="scroll-line" />
+          </div>
+        </section>
 
         {/* ABOUT */}
         <section className="about section">
@@ -134,9 +137,9 @@ export default function Home() {
           <div className="about__grid">
             <div className="about__visual">
               <div className="about__image-wrap">
-               <div className="portrait">
-  <img src="/about.JPG" alt="Nikhil Verma" />
-</div>
+                <div className="portrait">
+                  <img src="/about.JPG" alt="Nikhil Verma" />
+                </div>
                 <div className="about__accent-box" aria-hidden="true" />
               </div>
               <div className="about__quote">
@@ -182,7 +185,7 @@ export default function Home() {
                   <span className="highlight__icon">✦</span>
                   <div>
                     <strong>Languages</strong>
-                    <p>English · Hindi · Punjabi </p>
+                    <p>English · Hindi · Punjabi · French </p>
                   </div>
                 </div>
               </div>
@@ -210,7 +213,12 @@ export default function Home() {
                 style={{ animationDelay: `${i * 120}ms` }}
               >
                 <div className="work-card__img-wrap">
-                 <VideoSection src={item.src} onClick={()=>{setOpen(true)}}></VideoSection>
+                  <VideoSection
+                    src={item.src}
+                    onClick={() => {
+                      setOpen(true);
+                    }}
+                  ></VideoSection>
                   {/* <span className="work-card__tag">{item.tag}</span> */}
                 </div>
                 <div className="work-card__body">
@@ -270,42 +278,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* TESTIMONIALS */}
-        {/* <section className="testimonials section">
-          <div className="section__label">
-            <span className="gold-line" />
-            Testimonials
-          </div>
-          <div className="testimonials__grid">
-            {[
-              {
-                text: "Nikhil brings a rare vulnerability and magnetism. The camera simply adores her.",
-                name: "Jean-Luc Moreau",
-                role: "Creative Director, Dior",
-              },
-              {
-                text: "Working with Nikhil was transformative. She elevated every scene beyond what was written.",
-                name: "Priya Kapoor",
-                role: "Director, Cannes 2023",
-              },
-              {
-                text: "Her professionalism and artistry are unparalleled. She is, without doubt, a generational talent.",
-                name: "Marcus Webb",
-                role: "VP, L'Oréal Global",
-              },
-            ].map((t) => (
-              <div key={t.name} className="testimonial-card">
-                <span className="testimonial-card__mark">"</span>
-                <p className="testimonial-card__text">{t.text}</p>
-                <div className="testimonial-card__author">
-                  <strong>{t.name}</strong>
-                  <span>{t.role}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section> */}
-
         {/* CONTACT CTA */}
         <section className="cta section section--dark">
           <div className="cta__orb cta__orb--1" aria-hidden="true" />
@@ -357,7 +329,7 @@ export default function Home() {
               className="footer__social"
               aria-label="Instagram"
             >
-              <Camera size={18} />
+              <FaInstagram size={18} />
             </a>
 
             <a
@@ -367,7 +339,7 @@ export default function Home() {
               className="footer__social"
               aria-label="IMDb"
             >
-              <Film size={18} />
+              <FaImdb size={18} />
             </a>
 
             <a
@@ -387,7 +359,8 @@ export default function Home() {
             </a>
           </div>
           <p className="footer__copy">
-            © {new Date().getFullYear()} Nikhil Verma. All rights reserved. Designed By <a href="https://ozontrix.com">Ozontrix</a>
+            © {new Date().getFullYear()} Nikhil Verma. All rights reserved.
+            Designed By <a href="https://ozontrix.com">Ozontrix</a>
           </p>
         </div>
       </footer>
@@ -398,10 +371,7 @@ export default function Home() {
             className="video-modal-content"
             onClick={(e) => e.stopPropagation()}
           >
-            <button
-              className="close-btn"
-              onClick={() => setOpen(false)}
-            >
+            <button className="close-btn" onClick={() => setOpen(false)}>
               ✕
             </button>
 

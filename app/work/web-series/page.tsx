@@ -8,17 +8,19 @@ import Navbar from "../../components/Navbar";
 
 const seriesVideos = [
   {
-    title: "Staff Room",
+    title: "Staff Room - Kunal (Primary)",
     platform: "Amazon Minitv",
+    Staring: "Kunal",
     year: "2023",
     thumbnail:
       "https://img.youtube.com/vi/FvVOkFQrrRk/maxresdefault.jpg",
     videoId: "FvVOkFQrrRk",
   },
     {
-    title: "Before We Actually Met",
+    title: "Before We Actually Met - Sahil (Lead)",
     platform: "Youtube",
-    year: "2023",
+    Staring: "Kunal",
+    year: "2024",
     thumbnail:
       "https://img.youtube.com/vi/V6IQG8xLHsc/maxresdefault.jpg",
     videoId: "V6IQG8xLHsc",
